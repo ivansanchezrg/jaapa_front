@@ -1,0 +1,153 @@
+<!-- dashboard.component.html -->
+<div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside [ngClass]="{'sidebar': true, 'sidebar-expanded': isSidebarOpen, 'sidebar-collapsed': !isSidebarOpen}">
+      <!-- Logo -->
+      <div class="sidebar-header">
+        <div class="logo" *ngIf="isSidebarOpen">DashBoard</div>
+        <button class="sidebar-toggle" (click)="toggleSidebar()" pButton icon="pi pi-bars"></button>
+      </div>
+      
+      <!-- Línea divisora con estilo de footer -->
+      <div class="sidebar-footer" *ngIf="isSidebarOpen">
+       
+      </div>
+ 
+      <!-- Navigation -->
+      <nav class="sidebar-nav">
+        <div class="menu-section">
+          <ul class="menu-list">
+            <li *ngFor="let item of menuItems">
+              <button 
+                [ngClass]="{'menu-item': true, 'active': activeMenu === item.id}"
+                (click)="handleMenuClick(item.id)"
+                [attr.aria-expanded]="activeMenu === item.id">
+                <span class="menu-icon">
+                  <i [class]="item.icon"></i>
+                </span>
+                <span class="menu-text" *ngIf="isSidebarOpen">{{item.name}}</span>
+                <i *ngIf="isSidebarOpen && item.submenu.length > 0" 
+                   [ngClass]="{'pi pi-chevron-down': true, 'rotated': activeMenu === item.id}"></i>
+              </button>
+ 
+              <!-- Submenu -->
+              <div *ngIf="isSidebarOpen && activeMenu === item.id && item.submenu.length > 0" class="submenu-container">
+                <ul class="submenu">
+                  <li *ngFor="let subItem of item.submenu">
+                    <button 
+                      [ngClass]="{'submenu-item': true, 'active': activeSubmenu === subItem.id}"
+                      (click)="handleSubmenuClick(subItem.id)">
+                      {{subItem.name}}
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+ 
+        <!-- Divider -->
+        <div class="sidebar-divider"></div>
+ 
+        <!-- Utility Menu -->
+        <div class="menu-section">
+          <ul class="menu-list">
+            <li *ngFor="let item of utilityItems">
+              <button 
+                [ngClass]="{'menu-item': true, 'active': activeMenu === item.id}"
+                (click)="handleMenuClick(item.id)" 
+                [attr.aria-expanded]="activeMenu === item.id">
+                <span class="menu-icon">
+                  <i [class]="item.icon"></i>
+                </span>
+                <span class="menu-text" *ngIf="isSidebarOpen">{{item.name}}</span>
+                <i *ngIf="isSidebarOpen && item.submenu.length > 0" 
+                   [ngClass]="{'pi pi-chevron-down': true, 'rotated': activeMenu === item.id}"></i>
+              </button>
+ 
+              <!-- Submenu -->
+              <div *ngIf="isSidebarOpen && activeMenu === item.id && item.submenu.length > 0" class="submenu-container">
+                <ul class="submenu">
+                  <li *ngFor="let subItem of item.submenu">
+                    <button 
+                      [ngClass]="{'submenu-item': true, 'active': activeSubmenu === subItem.id}"
+                      (click)="handleSubmenuClick(subItem.id)">
+                      {{subItem.name}}
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+ 
+      <!-- User Info in Sidebar -->
+      <div class="sidebar-footer" *ngIf="isSidebarOpen">
+        <div class="user-info">
+          <div class="user-avatar">
+            <i class="pi pi-user"></i>
+          </div>
+          <div class="user-details">
+            <div class="user-name">Usuario</div>
+            <div class="user-role">Administrador</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+ 
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header -->
+      <header class="main-header">
+        <div class="header-title">
+          <!-- Botón de menú móvil colocado junto al título -->
+          <button class="mobile-menu-toggle" pButton icon="pi pi-bars" (click)="toggleSidebar()"></button>
+          <div class="header-title-content">
+            <h2 class="header-main-title">{{getCurrentMenuTitle()}}</h2>
+            <div class="header-subtitle" *ngIf="activeSubmenu">
+              {{getCurrentSubmenuTitle()}}
+            </div>
+          </div>
+        </div>
+        
+        <div class="header-actions">
+          <!-- Botón de Modo Oscuro -->
+          <button class="darkmode-btn" pButton [icon]="isDarkMode ? 'pi pi-sun' : 'pi pi-moon'" (click)="toggleDarkMode()"></button>
+          
+          <!-- User Menu - Visible en todas las pantallas -->
+          <div class="header-user-menu">
+            <div class="user-avatar">
+              <i class="pi pi-user"></i>
+            </div>
+            <div class="user-details">
+              <div class="user-name">Usuario</div>
+              <div class="user-role">Administrador</div>
+            </div>
+            <i class="pi pi-chevron-down user-dropdown-icon"></i>
+          </div>
+        </div>
+      </header>
+ 
+      <!-- Main Content Area -->
+      <main class="content-area">
+        <div class="content-container">
+          <h1 class="content-title">Área de Contenido Principal</h1>
+          <p class="content-description">Aquí irá el contenido de tu dashboard según la sección seleccionada.</p>
+          
+          <!-- Breadcrumbs -->
+          <div class="breadcrumbs">
+            <span class="breadcrumb-item">Dashboard</span>
+            <!-- Solo muestra el submenu activo, sin mostrar el menu intermedio -->
+            <ng-container *ngIf="activeSubmenu">
+              <span class="breadcrumb-separator">/</span>
+              <span class="breadcrumb-item active">{{getCurrentSubmenuTitle()}}</span>
+            </ng-container>
+          </div>
+        </div>
+      </main>
+    </div>
+ 
+    <!-- Overlay para modo móvil -->
+    <div class="sidebar-overlay" *ngIf="isSidebarOpen" (click)="toggleSidebar()"></div>
+</div>
