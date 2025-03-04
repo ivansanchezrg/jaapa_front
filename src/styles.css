@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+
+:root {
+    /* Tema claro (actual) */
+    --primary-color: #3D4AA2;
+    --secondary-color: #6C63FF;
+    --dark-accent: #2A3356;
+    --light-accent: #8B85FF;
+    --text-color: #1A2138;
+    --text-light: #4A5578;
+    --light-bg: #F6F8FF;
+    --card-bg: #ffffff;
+    --gradient-start: #EDF0FF;
+    --gradient-end: #F0F2FF;
+  }
+  
+  .dark-theme {
+    /* Tema oscuro mejorado */
+    --primary-color: #5D6AC2;
+    --secondary-color: #7B71FF;
+    --dark-accent: #151A32;
+    --light-accent: #6359E8;
+    --text-color: #F0F2FF;
+    --text-light: #A9B0D0;
+    --light-bg: #121525;
+    --card-bg: #1E2235;
+    --gradient-start: #1A1E2F;
+    --gradient-end: #252A40;
+  }
+  
+  /* transición suave entre temas */
+* {
+    transition: background-color 0.3s, color 0.3s;
+  }
