@@ -43,7 +43,7 @@ ng serve
 Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente si cambias alguno de los archivos fuente.
 
 ## 📂 Estructura del proyecto
-
+```
 src/
 ├── app/
 │   ├── admin/               # Módulo de administración
@@ -72,7 +72,7 @@ src/
 │   │   └── shared.module.ts
 │   └── super-admin/         # Módulo para super administradores
 └── ...
-
+```
 ## 🧩 Componentes principales
 
 ### Dashboard Layout
