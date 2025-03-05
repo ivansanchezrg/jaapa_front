@@ -44,19 +44,34 @@ Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente
 
 ## 📂 Estructura del proyecto
 
-```
 src/
 ├── app/
-│   ├── components/          # Componentes reutilizables
-│   │   └── dashboard/       # Componentes del dashboard
-│   ├── core/                # Servicios singleton, modelos, etc.
-│   ├── pages/               # Componentes de páginas
-│   ├── shared/              # Componentes, pipes y directivas compartidos
-│   └── ...
-├── assets/                  # Recursos estáticos
-├── environments/            # Configuraciones de entorno
+│   ├── admin/               # Módulo de administración
+│   │   ├── components/      # Componentes del admin
+│   │   ├── services/        # Servicios para admin
+│   │   ├── admin-routing.module.ts
+│   │   └── admin.module.ts
+│   ├── auth/                # Módulo de autenticación
+│   │   ├── auth-routing.module.ts
+│   │   └── auth.module.ts
+│   ├── core/                # Funcionalidad central de la aplicación
+│   │   ├── guards/          # Guards para protección de rutas
+│   │   ├── interceptors/    # Interceptores HTTP
+│   │   ├── models/          # Modelos de datos
+│   │   ├── services/        # Servicios compartidos
+│   │   └── core.module.ts
+│   ├── operator/            # Módulo para operadores
+│   ├── public/              # Módulo público
+│   ├── shared/              # Recursos compartidos
+│   │   ├── components/      # Componentes compartidos
+│   │   ├── dashboard/       # Componentes del dashboard
+│   │   │   └── components/  # Sub-componentes del dashboard
+│   │   ├── directives/      # Directivas personalizadas
+│   │   ├── pipes/           # Pipes personalizados
+│   │   ├── prime-ng/        # Configuración de PrimeNG
+│   │   └── shared.module.ts
+│   └── super-admin/         # Módulo para super administradores
 └── ...
-```
 
 ## 🧩 Componentes principales
 
