@@ -22,6 +22,9 @@ Un moderno dashboard administrativo desarrollado con Angular, diseñado con un e
 - Angular CLI (v15.2.10)
 - Primeng (v15.4.1)
 
+## 📚 Dependencias y Plugins utilizados
+* [NgPrime](https://www.primefaces.org/primeng/) v15.4.1 - Framework UI para componentes
+
 ## 🔧 Instalación y Configuración
 
 ```bash
