@@ -156,6 +156,6 @@ Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE.md
 
 ## 📞 Contacto
 
-[Tu Nombre] - [tu-email@example.com]
+Iván Sánchez - [ivansanchezrg@gmail.com]
 
 Link del proyecto: [https://github.com/tu-usuario/JaapaFront](https://github.com/tu-usuario/JaapaFront)
