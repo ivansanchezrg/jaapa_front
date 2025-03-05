@@ -20,7 +20,6 @@ Un moderno dashboard administrativo desarrollado con Angular, diseñado con un e
 - Node.js (v14.x o superior hasta v18.20.7)
 - npm (v10.8.2)
 - Angular CLI (v15.2.10)
-- Primeng (v15.4.1)
 
 ## 📚 Dependencias y Plugins utilizados
 * [NgPrime](https://www.primefaces.org/primeng/) v15.4.1 - Framework UI para componentes
